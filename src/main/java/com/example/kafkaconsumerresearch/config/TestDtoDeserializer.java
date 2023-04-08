@@ -1,17 +1,12 @@
 package com.example.kafkaconsumerresearch.config;
 
 import com.example.kafkaconsumerresearch.dto.TestDto;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.springframework.kafka.support.serializer.DeserializationException;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class TestDtoDeserializer implements Deserializer<TestDto> {
     @Override
