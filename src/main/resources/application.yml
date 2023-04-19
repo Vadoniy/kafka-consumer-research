@@ -4,13 +4,30 @@ server:
 spring:
   kafka:
     bootstrap-servers: localhost:9092
-    consumer:
-      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
-      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-      properties:
-        schema:
-          registry:
-            url: http://localhost:8081
-        specific:
-          avro:
-            reader: "true"
+
+kafka-topic-names:
+  avro: "avro-serializer-topic"
+  string: "string-serializer-topic"
+  custom: "custom-serializer-topic"
+
+kafka-consumer:
+  avro-consumer:
+    key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+    value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    group-id: "avro-consumer-group"
+    topic-name: "mytopic-avro"
+    properties:
+      schema:
+        registry:
+          url: http://localhost:8081
+      specific:
+        avro:
+          reader: "true"
+  string-consumer:
+    key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    group-id: "string-consumer-group"
+  custom-consumer:
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: com.example.kafkaconsumerresearch.config.TestDtoDeserializer
+    group-id: "custom-consumer-group"
