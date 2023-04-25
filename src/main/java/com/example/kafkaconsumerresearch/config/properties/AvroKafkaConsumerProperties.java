@@ -11,7 +11,7 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "kafka-consumer.avro-consumer")
 @Getter
 @Setter
-public class AvroKafkaConsumerProperties {
+public class AvroKafkaConsumerProperties implements ConsumerProperties {
 
     private String keyDeserializer;
 

@@ -15,7 +15,6 @@ kafka-consumer:
     key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
     value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
     group-id: "avro-consumer-group"
-    topic-name: "mytopic-avro"
     properties:
       schema:
         registry:

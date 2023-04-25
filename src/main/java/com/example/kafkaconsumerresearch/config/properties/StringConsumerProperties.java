@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "kafka-consumer.string-consumer")
 @Getter
 @Setter
-public class StringConsumerProperties {
+public class StringConsumerProperties implements ConsumerProperties {
 
     private String keyDeserializer;
 
